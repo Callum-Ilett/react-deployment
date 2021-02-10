@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - run: ssh -oStrictHostKeyChecking=no -v ./build $DROPLET_USER@$DROPLET_IP:/var/www/html/
+      - run: scp -o StrictHostKeyChecking=no -r ./build/* $DROPLET_USER@$DROPLET_IP:/var/www/html/
 
 # Orchestrate our job run sequence
 workflows:
