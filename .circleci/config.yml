@@ -1,12 +1,10 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
 
 # Define the jobs we want to run for this project
 jobs:
   pull-and-build:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:12.9.1-browsers
     steps:
       - checkout
       - run: npm install
