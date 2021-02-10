@@ -9,7 +9,9 @@ jobs:
       - image: circleci/node:7.10
     steps:
       - checkout
-      - run: ssh -oStrictHostKeyChecking=no -v $DROPLET_USER@$DROPLET_IP “./deploy_project.sh”
+      - run: npm install
+      - run: npm run build
+      - run: ssh -oStrictHostKeyChecking=no -v ./build/* $DROPLET_USER@$DROPLET_IP:/var/www/html/
 
 # Orchestrate our job run sequence
 workflows:
